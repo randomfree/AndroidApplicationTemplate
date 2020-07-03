@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -35,10 +37,9 @@ dependencies {
 
     implementation project(':core')
 
-    annotationProcessor "com.alibaba:arouter-compiler:$Ver.aRouter"
-
-    testImplementation "junit:junit:$TestVer.junit"
-    androidTestImplementation "androidx.test.ext:junit:$TestVer.androidXJunit"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$TestVer.espressoCore"
+    kapt Denps.aRouterAnnotation
+    kapt Denps.room_compiler
+    testImplementation Denps.jTestAll
+    androidTestImplementation Denps.androidTestAll
 
 }

@@ -35,13 +35,10 @@ dependencies {
     implementation project(':core')
     implementation project(':app')
 
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
-    annotationProcessor "com.alibaba:arouter-compiler:$Ver.aRouter"
+    annotationProcessor Denps.aRouterAnnotation
 
-
-    testImplementation "junit:junit:$TestVer.junit"
-    androidTestImplementation "androidx.test.ext:junit:$TestVer.androidXJunit"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$TestVer.espressoCore"
+    testImplementation Denps.jTestAll
+    androidTestImplementation Denps.androidTestAll
 
 }

@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion Config.compileSdkVersion
@@ -33,16 +34,27 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
-    api "org.jetbrains.kotlin:kotlin-stdlib:$Ver.kotlin"
-    api "androidx.core:core-ktx:$Ver.ktx"
+    api Denps.kotlinStdlib
+    api Denps.ktx
 
-    api "androidx.appcompat:appcompat:$Ver.appcompat"
-
-    api "com.alibaba:arouter-api:$Ver.aRouter"
-    annotationProcessor "com.alibaba:arouter-compiler:$Ver.aRouter"
+    api Denps.appcompat
+    api Denps.constraintLayout
 
 
-    testImplementation "junit:junit:$TestVer.junit"
-    androidTestImplementation "androidx.test.ext:junit:$TestVer.androidXJunit"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$TestVer.espressoCore"
+    api Denps.aRouter
+    kapt Denps.aRouterAnnotation
+
+    api Denps.netFeatureAll
+
+    api Denps.coroutines
+    api Denps.room_all
+    kapt Denps.room_compiler
+
+
+    api Denps.liveData
+    api Denps.viewModel
+
+    implementation Denps.multidex
+    testImplementation Denps.jTestAll
+    androidTestImplementation Denps.androidTestAll
 }
