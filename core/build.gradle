@@ -54,7 +54,7 @@ dependencies {
     api Denps.liveData
     api Denps.viewModel
 
-    implementation Denps.multidex
+
     testImplementation Denps.jTestAll
     androidTestImplementation Denps.androidTestAll
 }
